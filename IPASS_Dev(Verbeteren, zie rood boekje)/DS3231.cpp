@@ -49,13 +49,13 @@ uint8_t DS3231::getRegisterYrs(){
 }
 
 void DS3231::getAllRegisters(){
-    hwlib::cout << "\n" <<getRegisterSec() << " sec \n ";
-    hwlib::cout << getRegisterMin() << " min \n ";
-    hwlib::cout << getRegisterHrs() << " hrs \n ";
-    hwlib::cout << getRegisterDay() << " day \n ";
-    hwlib::cout << getRegisterDate() << " date \n ";
-    hwlib::cout << getRegisterMth() << " mth \n ";
-    hwlib::cout << getRegisterYrs() << " yrs \n ";
+    getRegisterSec();
+    getRegisterMin();
+    getRegisterHrs();
+    getRegisterDay();
+    getRegisterDate();
+    getRegisterMth();
+    getRegisterYrs();
     }
 
 void DS3231::setAllRegisters(uint8_t sec, uint8_t Min, uint8_t Hrs, uint8_t Day, uint8_t Date, uint8_t Mth, uint8_t Yrs){
