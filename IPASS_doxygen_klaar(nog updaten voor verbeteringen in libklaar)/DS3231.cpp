@@ -27,37 +27,65 @@ uint8_t DS3231::readFromRegister(uint8_t registers){
 }
 
 uint8_t DS3231::getRegisterSec(){
-    return readFromRegister(0x00); // if(value < 0){ value == 0}
+    return readFromRegister(regSec); // if(value < 0){ value == 0}
 }
 uint8_t DS3231::getRegisterMin(){
-    return readFromRegister(0x01);
+    return readFromRegister(regMin);
 }
 uint8_t DS3231::getRegisterHrs(){
-    return readFromRegister(0x02);
+    return readFromRegister(regHrs);
 }
 uint8_t DS3231::getRegisterDay(){
-    return readFromRegister(0x03);
+    return readFromRegister(regDay);
 }
 uint8_t DS3231::getRegisterDate(){
-    return readFromRegister(0x04);
+    return readFromRegister(regDate);
 }
 uint8_t DS3231::getRegisterMth(){
-    return readFromRegister(0x05);
+    return readFromRegister(regMth);
 }
 uint8_t DS3231::getRegisterYrs(){
-    return readFromRegister(0x06);
+    return readFromRegister(regYrs);
 }
 
 void DS3231::getAllRegisters(){
-    hwlib::cout << "\n" <<getRegisterSec() << " sec \n ";
-    hwlib::cout << getRegisterMin() << " min \n ";
-    hwlib::cout << getRegisterHrs() << " hrs \n ";
-    hwlib::cout << getRegisterDay() << " day \n ";
-    hwlib::cout << getRegisterDate() << " date \n ";
-    hwlib::cout << getRegisterMth() << " mth \n ";
-    hwlib::cout << getRegisterYrs() << " yrs \n ";
+    getRegisterSec();
+    getRegisterMin();
+    getRegisterHrs();
+    getRegisterDay();
+    getRegisterDate();
+    getRegisterMth();
+    getRegisterYrs();
     }
 
-void DS3231::setAllRegisters(uint8_t sec, uint8_t Min, uint8_t Hrs, uint8_t Day, uint8_t Date, uint8_t Mth, uint8_t Yrs){
-    writeToRegister(0x00, sec),writeToRegister(0x01, Min),writeToRegister(0x02, Hrs),writeToRegister(0x03, Day),writeToRegister(0x04, Date),writeToRegister(0x05, Mth),writeToRegister(0x06, Yrs);
+void DS3231::setRegisterSec(uint8_t sec){
+    writeToRegister(regSec, sec);
+}
+void DS3231::setRegisterMin(uint8_t min){
+    writeToRegister(regMin, min);
+}
+void DS3231::setRegisterHrs(uint8_t hrs){
+    writeToRegister(regHrs, hrs);
+}
+void DS3231::setRegisterDay(uint8_t day){
+    writeToRegister(regDay, day);
+}
+void DS3231::setRegisterDate(uint8_t date){
+    writeToRegister(regDate, date);
+}
+void DS3231::setRegisterMth(uint8_t mth){
+    writeToRegister(regMth, mth);
+}
+void DS3231::setRegisterYrs(uint8_t yrs){
+    writeToRegister(regYrs, yrs);
+}
+
+void DS3231::setAllRegisters(uint8_t sec, uint8_t min, uint8_t hrs, uint8_t day, uint8_t date, uint8_t mth, uint8_t yrs){
+    setRegisterSec(sec);
+    setRegisterMin(min);
+    setRegisterHrs(hrs);
+    setRegisterDay(day);
+    setRegisterDate(date);
+    setRegisterMth(mth);
+    setRegisterYrs(yrs);
 }
