@@ -1,8 +1,6 @@
 #include "hwlib.hpp"
 #include "DS3231.hpp"
 
-
-
 int main( void ){	  
    namespace target = hwlib::target;
    

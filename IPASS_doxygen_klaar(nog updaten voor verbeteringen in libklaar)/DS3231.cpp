@@ -89,3 +89,4 @@ void DS3231::setAllRegisters(uint8_t sec, uint8_t min, uint8_t hrs, uint8_t day,
     setRegisterMth(mth);
     setRegisterYrs(yrs);
 }
+

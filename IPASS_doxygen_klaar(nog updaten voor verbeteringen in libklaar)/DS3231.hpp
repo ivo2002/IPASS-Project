@@ -31,6 +31,16 @@ private:
     // This function converts a decimal input to a uint8_t binary with a calculation
     uint8_t convertToBinary(uint8_t decimal);
 
+    struct allTime{
+        uint8_t actualsec;
+        uint8_t actualmin;
+        uint8_t actualhrs;
+        uint8_t actualday;
+        uint8_t actualdate;
+        uint8_t actualmth;
+        uint8_t actualyrs;
+    };
+
 public:
     DS3231(hwlib::i2c_bus & i2cBus);
 
@@ -141,6 +151,38 @@ public:
     //Detail
     // Sets all paramters into the correct register, regSec, regMin, regHrs etc..
     void setAllRegisters(uint8_t sec, uint8_t min, uint8_t hrs, uint8_t day, uint8_t date, uint8_t mth, uint8_t yrs);
+
+    //Brief
+    // Gets all actual time
+    //Detail
+    // Gets all actual time and places the values into a struct
+    allTime getAllTime(){
+        allTime actualTime;
+
+        actualTime.actualsec = getRegisterSec();
+        actualTime.actualmin = getRegisterMin();
+        actualTime.actualhrs = getRegisterHrs();
+        actualTime.actualday = getRegisterDay();
+        actualTime.actualdate = getRegisterDate();
+        actualTime.actualmth = getRegisterMth();
+        actualTime.actualyrs = getRegisterYrs();
+        return actualTime;
+    }
+
+    //Brief
+    // Sets all actual time
+    //Detail
+    // Sets all actual time and sets the timer to the specified time
+    void setAllTime(const allTime& actualTime){
+        setRegisterSec(actualTime.actualsec);
+        setRegisterMin(actualTime.actualmin);
+        setRegisterHrs(actualTime.actualhrs);
+        setRegisterDay(actualTime.actualday);
+        setRegisterDate(actualTime.actualdate);
+        setRegisterMth(actualTime.actualmth);
+        setRegisterYrs(actualTime.actualyrs);
+    }
+
 };
 
 #endif
