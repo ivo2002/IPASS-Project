@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES :=ipass.cpp
+SOURCES :=DS3231.cpp
 
 # header files in this project
-HEADERS :=ipass.hpp
+HEADERS :=DS3231.hpp
 
 # other places to look for files for this project
 SEARCH  := 
